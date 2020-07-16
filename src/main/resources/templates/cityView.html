@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+<!--        <p th:text="${city.name}">This is a paragraph</p>-->
+<!--        <p th:text="${city.district}">This is a paragraph</p>-->
+<!--        <p th:text="${city.countryCode}">This is a paragraph</p>-->
+<!--        <p th:text="${city.population}">This is a paragraph</p>-->
+
+        <div th:object="${city}">
+            City Name: <span th:text="*{name}"></span><br/>
+            District: <span th:text="*{district}"></span><br/>
+            Population: <span th:text="*{population}"></span><br/>
+            Country code: <span th:text="*{country.code}"></span><br/>
+            Country Name: <span th:text="*{country.name}"></span><br/>
+            Continent: <span th:text="*{country.continent}"></span><br/>
+        </div>
+    </body>
+</html>

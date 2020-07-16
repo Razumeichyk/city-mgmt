@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/web/country/name">
+    <input type="text" name="countryName"/> Country name <br/>
+    <input type="submit" value="Search"/> <br/><br/>
+</form>
+<table>
+    <tr>
+        <th>Country code</th>
+        <th>Name</th>
+        <th>Continent</th>
+        <th>Region</th>
+        <th>Population</th>
+        <th>More Info</th>
+    </tr>
+    <tr th:each="country : ${countries}" th:object="${country}">
+        <td th:text="*{code}">Sample</td>
+        <td th:text="*{name}">Sample</td>
+        <td th:text="*{continent}">Sample</td>
+        <td th:text="*{region}">Sample</td>
+        <td th:text="*{population}">Sample</td>
+<!--        <td th:text="*{cities}">Sample</td>-->
+        <td> <a th:href="@{/web/country/code/{countryCode}/(countryCode=*{code})}"> View info </a></td>
+        <!--                <td> <a th:href="@{'/web/city/id/' + ${city.id}}"> View info </a></td>-->
+    </tr>
+</table>
+</body>
+</html>
